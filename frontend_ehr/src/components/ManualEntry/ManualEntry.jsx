@@ -3,6 +3,7 @@ import "./ManualEntry.css";
 import { Context } from '../../index.js';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { BASE_URL } from '../../back_url.jsx';
 import { useNavigate } from 'react-router-dom';
 const baseClass = "basecontainer";
 const inlineStyles = {
@@ -50,7 +51,7 @@ const postManualEntry = async (e) => {
 
   switch (disease.toLowerCase()) {
     case "sugar":
-      url = "http://localhost:4000/sugar";
+      url = `${BASE_URL}/sugar`;
       postData = {
         fastingSugar: fastingSugarData,
         randomSugar: randomSugarData,
@@ -59,7 +60,7 @@ const postManualEntry = async (e) => {
       };
       break;
     case "bp":
-      url = "http://localhost:4000/hearthealth";
+      url = `${BASE_URL}/hearthealth`;
       postData = {
         systolicBP: systolicBPData,
         diastolicBP: diastolicBPData,
@@ -69,7 +70,7 @@ const postManualEntry = async (e) => {
       };
       break;
     case "urine":
-      url = "http://localhost:4000/urine";
+      url = `${BASE_URL}/urine`;
       postData = {
         colour: urineColor,
         pH: urinepH,
@@ -81,7 +82,7 @@ const postManualEntry = async (e) => {
       };
       break;
     case "lipid":
-      url = "http://localhost:4000/lipid";
+      url = `${BASE_URL}/lipid`;
       postData = {
         totalCholesterol: totalCholesterol,
         ldlCholesterol: ldlCholesterol,

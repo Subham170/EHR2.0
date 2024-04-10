@@ -8,7 +8,7 @@ import axios from 'axios';
 import { Context } from '../..';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-
+import { BASE_URL } from '../../back_url.jsx';
 ChartJS.register(
     LineElement, PointElement, CategoryScale, LinearScale, Tooltip, Legend
 );
@@ -33,7 +33,7 @@ const UrineReportChart = () => {
       }
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:4000/urine", { withCredentials: true });
+                const response = await axios.get(`${BASE_URL}/urine`, { withCredentials: true });
                 const { Colour, PH, Ketone, Glucose, Bilirubin, date, name } = response.data.data;
 
                 const convertedKetone = Ketone.map(val => val === "Positive" ? 1 : val === "Negative" ? -1 : 0);

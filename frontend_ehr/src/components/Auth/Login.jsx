@@ -8,6 +8,7 @@ import { Context } from '../..';
 import logo1 from "../../assests/logo.jpg";
 import photo1 from "../../assests/auth.png";
 import "./Login.css";
+import { BASE_URL } from '../../back_url.jsx';
 function Login() {
 
   const {isAuthorized,setIsAuthorized,user,setUser}=useContext(Context);
@@ -30,7 +31,7 @@ function Login() {
       e.preventDefault();
 try{
   console.log("mja");
-   const {data}=await axios.post("http://localhost:4000/login",{email,password},{withCredentials:true,
+   const {data}=await axios.post(`${BASE_URL}/login`,{email,password},{withCredentials:true,
   headers:{
     "Content-Type":"application/json",
   },});

@@ -8,6 +8,7 @@ import axios from 'axios';
 import { Context } from '../..';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../../back_url.jsx';
 
 ChartJS.register(
     LineElement, PointElement, CategoryScale, LinearScale, Tooltip, Legend
@@ -32,7 +33,7 @@ const BloodPressureChart = () => {
         const fetchData = async () => {
           
             try {
-                const response = await axios.get("http://localhost:4000/hearthealth", { withCredentials: true });
+                const response = await axios.get(`${BASE_URL}/hearthealth`, { withCredentials: true });
                 const { Systole, Diastole, Heartbeat, date, name } = response.data.data;
                 setSystole(Systole);
                 setDiastole(Diastole);

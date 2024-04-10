@@ -7,6 +7,7 @@ import { Link, Navigate } from 'react-router-dom';
 import { Context } from '../..';
 import logo1 from "../../assests/logo.jpg";
 import photo1 from "../../assests/auth.png";
+import { BASE_URL } from '../../back_url.jsx';
 function Register() {
 
   const {isAuthorized,setIsAuthorized,user,setUser}=useContext(Context);
@@ -31,7 +32,7 @@ function Register() {
 try{
   console.log("mja");
   console.log("email",email);
-    const response=await axios.post("http://localhost:4000/register",{email,password,name},{withCredentials:true,
+    const response=await axios.post(`${BASE_URL}/register`,{email,password,name},{withCredentials:true,
   headers:{
     "Content-Type":"application/json",
   },});

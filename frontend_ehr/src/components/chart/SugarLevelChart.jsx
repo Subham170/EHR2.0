@@ -8,7 +8,7 @@ import axios from 'axios';
 import { Context } from '../..';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-
+import { BASE_URL } from '../../back_url.jsx';
 ChartJS.register(
     LineElement, PointElement, CategoryScale, LinearScale, Tooltip, Legend
 );
@@ -30,7 +30,7 @@ const SugarLevelChart = () => {
       }
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:4000/sugar", { withCredentials: true });
+                const response = await axios.get(`${BASE_URL}/sugar`, { withCredentials: true });
                 console.log("data",response.data.data);
                 const { FastingSugar, RandomSugar, date, name } = response.data.data;
                 setFastingSugar(FastingSugar);

@@ -5,6 +5,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { GiCrossFlare, GiCrossMark, GiCrossShield, GiCrossbow, GiCrossedAirFlows, GiCrossedChains, GiCrossroad, GiHamburgerMenu } from 'react-icons/gi';
 import logo1 from "../../assests/logo.jpg";
+import { BASE_URL } from '../../back_url.jsx';
 import "./Navbar.css"; // Import CSS file
 import { FaClosedCaptioning, FaCross, FaCrosshairs, FaWindowClose } from 'react-icons/fa';
 
@@ -15,7 +16,7 @@ function Navbar() {
     // const navigateTo = useNavigate();
     const handleLogout = async () => {
       try{
-         const { data }=await axios.get("http://localhost:4000/logout",{withCredentials:true});
+         const { data }=await axios.get(`${BASE_URL}/logout`,{withCredentials:true});
       console.log("mj",data);
         if(data.message){
           toast.success(data.message);

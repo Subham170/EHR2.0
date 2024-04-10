@@ -8,7 +8,7 @@ import axios from 'axios';
 import { Context } from '../..';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-
+import { BASE_URL } from '../../back_url.jsx';
 ChartJS.register(
     LineElement, PointElement, CategoryScale, LinearScale, Tooltip, Legend
 );
@@ -33,7 +33,7 @@ const LipidLevelChart = () => {
       }
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:4000/lipid", { withCredentials: true });
+                const response = await axios.get(`${BASE_URL}/lipid`, { withCredentials: true });
                 const { TotalCholesterol, LdlCholesterol, HdlCholesterol, Tryglycerides, date, name } = response.data.data;
                 console.log(response.data.data)
                 setTotalCholesterol(TotalCholesterol);
