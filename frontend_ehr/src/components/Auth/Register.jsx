@@ -38,28 +38,28 @@ try{
   },});
 
   console.log("ajs",response);
-  // if(data.message){
-  //  toast.success(data.message);
-  //  setUser(data.user);
-  //  console.log(user);
-  //  setname("");
-  //  setemail("");
-  //  setpassword("");
-  //  setIsAuthorized(true);
-  // }
-  // else if(data.error){
-  //   toast.error(data.error);
-  // }
+  if(data.message){
+   toast.success(data.message);
+   setUser(data.user);
+   console.log(user);
+   setname("");
+   setemail("");
+   setpassword("");
+   setIsAuthorized(true);
+  }
+  else if(data.error){
+    toast.error(data.error);
+  }
 
    
    
 }catch(error){
-  // console.log("afghj",error.response.data.message);
-  // console.log(error);
-// 
+  console.log("afghj",error.response.data.message);
+  console.log(error);
+
   const errorMessageRegex = /<pre>(.*?)(?=<br>)/s;
-// const match = errorMessageRegex.exec(error.response.data);
-// toast.error(match[1].trim());
+const match = errorMessageRegex.exec(error.response.data);
+toast.error(match[1].trim());
 
 
 }
