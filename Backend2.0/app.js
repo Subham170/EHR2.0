@@ -18,7 +18,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: ["http://localhost:3000", "https://electronic-health-record07.netlify.app/"],
+  origin: "https://ehr2-0-frontend-2-0.onrender.com",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 }));
