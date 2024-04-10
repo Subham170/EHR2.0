@@ -31,24 +31,24 @@ function Register() {
 try{
   console.log("mja");
   console.log("email",email);
-    const {data}=await axios.post("http://localhost:4000/register",{email,password,name},{withCredentials:true,
+    const response=await axios.post("http://localhost:4000/register",{email,password,name},{withCredentials:true,
   headers:{
     "Content-Type":"application/json",
   },});
 
-  console.log("ajs",data);
-  if(data.message){
-   toast.success(data.message);
-   setUser(data.user);
-   console.log(user);
-   setname("");
-   setemail("");
-   setpassword("");
-   setIsAuthorized(true);
-  }
-  else if(data.error){
-    toast.error(data.error);
-  }
+  console.log("ajs",response);
+  // if(data.message){
+  //  toast.success(data.message);
+  //  setUser(data.user);
+  //  console.log(user);
+  //  setname("");
+  //  setemail("");
+  //  setpassword("");
+  //  setIsAuthorized(true);
+  // }
+  // else if(data.error){
+  //   toast.error(data.error);
+  // }
 
    
    
@@ -57,8 +57,8 @@ try{
   // console.log(error);
 // 
   const errorMessageRegex = /<pre>(.*?)(?=<br>)/s;
-const match = errorMessageRegex.exec(error.response.data);
-toast.error(match[1].trim());
+// const match = errorMessageRegex.exec(error.response.data);
+// toast.error(match[1].trim());
 
 
 }
