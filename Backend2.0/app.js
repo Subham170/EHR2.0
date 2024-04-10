@@ -18,7 +18,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: ["http://localhost:3000", "https://ehr-p9nh.onrender.com/", "https://65f736430ab77db88c094fda--incandescent-dieffenbachia-b4971b.netlify.app/"],
+  origin: ["http://localhost:3000", "https://ehr-p9nh.onrender.com/", "https://65f736430ab77db88c094fda--incandescent-dieffenbachia-b4971b.netlify.app/","https://ehr-2-0.vercel.app/"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 }));
