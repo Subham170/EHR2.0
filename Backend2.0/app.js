@@ -17,11 +17,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(cors({
-  origin: "https://ehr2-0-frontend-2-0.onrender.com",
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true,
-}));
+app.use(cors());
 app.post("/register", register);
 app.post("/login", login);
 app.get("/logout", logout);
